@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>2019-FR-AL-01-reverse-eng</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'randomGenerator-1.0',
+         'jschannel', 'platform-pr', 'buttonsAndMessages_resp', 'installationAPI.01', 'miniPlatform',
+         'raphaelButton-1.0', 'fonts-loader-1.0' ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      if(Beav.Navigator.supportsResponsive()){
+         importModules(['taskStyles-0.3_M']);
+      }else{
+         importModules(['taskStyles-0.3']);
+      }
+      window.FontsLoader.loadFonts(['fontawesome']);
+   </script>
+   <script class="remove" type="text/javascript">
+        var json = {
+           "id": "",
+           "language": "fr",
+           "version": "fr.01",
+           "authors": "",
+           "translators": [],
+           "license": "",
+           "taskPathPrefix": "",
+           "modulesPathPrefix": "",
+           "browserSupport": [],
+           "fullFeedback": true,
+           "acceptedAnswers": [],
+           "usesRandomSeed": false
+        };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         error: "Ce n'est pas la bonne réponse.",
+         encryptionTool: "MACHINE À CHIFFREMENT",
+         recentAttempts: "DERNIÈRES TENTATIVES",
+         pleaseInput1: "Entrez un mot de ",
+         pleaseInput2: " lettres.",
+         "try": "Essayer",
+         undo: "Annuler",
+         plain: "ENTRÉE",
+         encrypted: "SORTIE"
+      }
+   </script>
+
+   <script type="text/javascript" src="task_resp.js"></script>
+   <style>
+      
+      #target {
+         background: white;
+         border-radius: 20px;
+         font-size: 24px;
+         font-weight: bold;
+         letter-spacing: 0.2em;
+         font-family: monospace;
+         color: #508850;
+         text-align: center;
+         padding: 8px;
+         width: 203px;
+         margin: 34px auto;
+      }
+     
+   </style>
+</head>
+
+<body>
+   <div id="task" alkindi>
+      <div id="zone_012">
+         <div id="zone_0">
+            <h1>Machine à chiffrement</h1>
+            <div id="tabsContainer"></div>
+         </div>
+
+         <div id="zone_12">
+            <div id="zone_1">
+               <div class="consigne">
+                  <h3><i class="far fa-sticky-note"></i>VOTRE MISSION</h3>
+                  <div id="text">
+                    <p><b>Trouvez une combinaison de lettres qui donne le message suivant&nbsp;:</b></p>
+                    <div id="target"></div>
+                    <p>Utilisez la machine à chiffrement pour essayer de chiffrer différents messages. Vous pouvez faire autant d'essais que vous voulez.</p>
+                  </div>
+               </div>
+            </div>
+         
+            <div id="zone_2">
+               <div id="taskCont">
+                  <div id="paper"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="zone_3"></div>
+      
+<!--       <span id="error">
+      </span> -->
+ 
+         <!-- <div id="feedback"></div> -->
+      <img src="icon.png" style="display:none">
+   </div>
+   <div id="solution">
+      <h2>Solution</h2>
+   </div>
+</body>
+</html>
