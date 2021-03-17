@@ -428,9 +428,6 @@ function initTask(subTask) {
             encrypted[newIndex] = substitute;
          }
       }
-      // if(level == "hard"){
-      //    rng.shuffle(encrypted);
-      // }
       
       return encrypted;
    }
