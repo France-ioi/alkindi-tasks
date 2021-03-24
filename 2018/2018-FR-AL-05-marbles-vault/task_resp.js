@@ -287,7 +287,7 @@ function initTask(subTask) {
          }
          wheelDragArea[iWheel] = paper.circle(wheelCenter[iWheel][0],wheelCenter[iWheel][1],wheelRadius).attr(clickAreaAttr);
          wheelDragArea[iWheel].undrag();
-         Beav.dragWithTouch(wheelDragArea[iWheel], dragMove(iWheel), dragStart(iWheel), dragEnd(iWheel), displayHelper)
+         Beav.dragWithTouch(wheelDragArea[iWheel], dragMove(iWheel), dragStart(iWheel), dragEnd(iWheel));
       }
    };
 
