@@ -289,7 +289,7 @@ function initTask(subTask) {
    function initDragAndDrop() {
       for(var iBf = 0; iBf < data[level].butterflies.length; iBf++){
          butterflyObj[iBf].undrag();
-         butterflyObj[iBf].drag(dragMove(iBf),dragStart(iBf),dragEnd(iBf));
+         Beav.dragWithTouch(butterflyObj[iBf], dragMove(iBf), dragStart(iBf), dragEnd(iBf));
       }
    };
 
@@ -493,7 +493,6 @@ function initTask(subTask) {
       var antPos = [ [ 0.375, 0.08 ], [ 0.5, 0.08] ];
       var dotPos = [ [ 0.12, 0.2], [ 0.15, 0.49], [ 0.32, 0.41], [ 0.17, 0.77], [ 0.32, 0.84] ];
       paper.setStart();
-      // var ellipse = paper.ellipse(x,y).attr(ellipseAttr);
       
       if(graph){
          var ellipse = paper.ellipse(x,y).attr(ellipseAttr);
