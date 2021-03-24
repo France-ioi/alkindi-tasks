@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>2019-FR-AL-08-password-rules</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'randomGenerator-1.0',
+         'platform-pr', 'buttonsAndMessages_resp', 'installationAPI.01', 'miniPlatform',
+         'raphaelButton-1.0', 'shape-paths', 'fonts-loader-1.0' ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      if(Beav.Navigator.supportsResponsive()){
+         importModules(['taskStyles-0.3_M']);
+      }else{
+         importModules(['taskStyles-0.3']);
+      }
+      window.FontsLoader.loadFonts(['fontawesome']);
+   </script>
+   <script class="remove" type="text/javascript">
+         var json = {
+            "id": "",
+            "language": "fr",
+            "version": "fr.01",
+            "authors": "",
+            "translators": [],
+            "license": "",
+            "taskPathPrefix": "",
+            "modulesPathPrefix": "",
+            "browserSupport": [],
+            "fullFeedback": true,
+            "acceptedAnswers": [],
+            "usesRandomSeed": false
+         };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         selectRules: "SÉLECTIONNEZ ET CONFIGUREZ LES RÈGLES",
+         passwordMustContain: "Le mot de passe doit contenir",
+         passwordMustContainLength: "Le mot de passe doit contenir au moins",
+         tenSymbolsEasy: "Le mot de passe doit contenir au maximum 10 symboles\n (lettres ou chiffres).",
+         tenSymbolsMediumHard: "Le mot de passe doit contenir au maximum 10 symboles\n (lettres, chiffres ou cacactères spéciaux).",
+         lowerCaseLetters: "lettres minuscules ['a', 'b', ..., 'z'].",
+         upperCaseLetters: "lettres majuscules ['A', 'B', ..., 'Z'].",
+         digits: "chiffres ['0', '1', ..., '9'].",
+         special: "caractères spéciaux ['@', '!', ..., '#'].",
+         characters: "symboles.",
+         toAccept: "À ACCEPTER",
+         toReject: "À REJETER",
+         statusAccepted: "ACCEPTÉ",
+         statusRejected: "REJETÉ",
+         passwordToAcceptRejected: "Au moins un mot de passe à accepter a été rejeté par vos règles.",
+         passwordToRejectAccepted: "Au moins un mot de passe à refuser a été accepté par vos règles.",
+         notEnoughPossibilities: "Les règles sélectionnées sont trop restrictives : il y a moins de 1 000 000 000 000 000 000 mots de passe possibles avec ces règles.",
+         possibilitiesTitle: "NOMBRE DE POSSIBLES",
+         targetTitle: "OBJECTIF À DÉPASSER"
+      }
+   </script>
+
+   <script type="text/javascript" src="task_resp.js"></script>
+   <style>
+
+      #paper {
+         position: relative;
+      }
+      select {
+         position: absolute;
+         color: #508855;
+         font-size: 14;
+         font-weight: bold;
+         font-family: Arial;
+         text-align: center;
+         width: selectWidth;
+         height: selectHeight;
+         border: none;
+         background-color: white;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task" alkindi>
+      <div id="zone_012">
+         <div id="zone_0">
+            <h1>Règles de mots de passe</h1>
+            <div id="tabsContainer"></div>
+         </div>
+
+         <div id="zone_12">
+            <div id="zone_1">
+               <div class="consigne">
+                  <h3>VOTRE MISSION</h3>
+                  <div id="text">
+               		<p><b>Sélectionnez et configurez les règles ci-contre</b> pour autoriser les mots de passe de la liste <b>À ACCEPTER</b> et interdire les mots de passe de la liste <b>À REJETER</b>.</p>
+                     <p class="hard">Vos règles doivent être telles qu'au moins <b>1&nbsp;000&nbsp;000&nbsp;000&nbsp;000&nbsp;000&nbsp;000</b> de mots de passe différents sont possibles.</p>
+                  </div>
+               </div>
+            </div>
+            
+            <div id="zone_2">
+               <div id="taskCont">
+                  <div id="paper"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="zone_3"></div>
+      
+      <span id="error">
+      </span>
+ 
+      <img src="icon.png" style="display:none">
+   </div>
+   <div id="solution">
+      <h2>Solution</h2>
+   </div>
+</body>
+</html>

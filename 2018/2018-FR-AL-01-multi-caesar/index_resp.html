@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>2018-FR-AL-01</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.1', 'JSON-js',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'randomGenerator-1.0',
+         'platform-pr', 'buttonsAndMessages_resp', 'installationAPI.01', 'miniPlatform', 'fonts-loader-1.0'
+         ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      if(Beav.Navigator.supportsResponsive()){
+         importModules(['taskStyles-0.3_M']);
+      }else{
+         importModules(['taskStyles-0.3']);
+      }
+      window.FontsLoader.loadFonts(['fontawesome']);
+   </script>
+   <script class="remove" type="text/javascript">
+        var json = {
+           "id": "",
+           "language": "fr",
+           "version": "fr.01",
+           "authors": "Animath, France-ioi, Arnaud Le Grand, Matthieu Lequesne, Razvan Barbaud, Mathias Hiron",
+           "license": "CC BY-SA 3.0",
+           "translators": [],
+           "taskPathPrefix": "",
+           "modulesPathPrefix": "",
+           "browserSupport": [],
+           "fullFeedback": true,
+           "acceptedAnswers": [],
+           "usesRandomSeed": false
+        };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         error: "Erreur : ce n'est pas le bon message.",
+         clickOnArrows: "Pour modifier une roue, cliquez sur les flèches aux extrémités",
+         //text: data[level].plaintext
+         text: {
+            easy: "HA ZQEWVA IJNO NAOPAV J HJ IJEOXW.",
+            <!-- medium: "LG QGWQG AFIHHSG T'NDQIGMQ GM SGPOLCACMQ AFCRXG LGQQSG BX QGWQG ALCIS NSIEIMCL OCS XMG LGQQSG C BITQCMAG HIWG, QNXJNXST BX PGPG ANQG, BCMT L'NSBSG BG L'CLOFCDGQ.", -->
+	    medium: "CQQHPQJMP, I'JPEMSOCQJMP TXJUCPQH HTQ AMPEJBHPQJHIIH : IH SHPBHZ-UMXT CXSC IJHX KHXBJ OJBJ BHUCPQ IC DCPRXH.",
+	    hard: "DFOVJTOKVTJFVQTTJFCKFTKBCQZOSPGQBOHJFOFQMFSDFCPMMVNJRVFQDFMBNJFQFTFCVQJTFFMBJTTJKBMFSHPDFDFCHJEEQFMFNSFTSMBVUBJTFJKFTSOPTTJAKFDFKJQFKFMFTTBGFTBNTCPNNBJSQFKBCKF"
+            <!-- hard: "KBTTBTTINBSCEJVKETDETBRETSKERETVKSBSCVNDPMOKPSCETENBSEVRTRPMBINTQVITETVRNPMMBIENSENSREEVXKETKIAERBSPRETESCPNSKETDGEFTKETOKVTRENPMMETFVRENSMBRDVTJVNIVTARVSVTESDBIVTDBTTIVTKPNHINVT." -->
+            }
+         }
+   </script>
+
+   <script type="text/javascript" src="task_resp.js"></script>
+   <style>
+      body * {
+         box-sizing: border-box
+      }
+      #enciphered, #deciphered {
+         margin: 20px;
+         min-height: 120px;
+         border: 3px solid black;
+         padding: 10px;
+         font-family: monospace;
+         /*overflow-wrap: break-word;*/
+         word-wrap:break-word;
+         word-break: break-all;
+         font-size: 20px;
+      }
+      #enciphered {
+         color: red;
+      }
+      #deciphered {
+         color: blue;
+      }
+      #wheels table {
+         border-collapse: collapse;
+         display: inline-block;
+         margin: 5px 10px;
+      }
+      #wheels td {
+         border: solid black 1px;
+         color: blue;
+      }
+      #wheels th, td {
+         width: 30px;
+         height: 30px;
+         text-align: center;
+      }
+      #wheels th, .noBorder {
+         border: none;
+         color: red;
+      }
+      .arrowCell {
+         padding: 0px;
+      }
+      .arrow {
+         margin: 0px;
+         padding: 2px;
+         height: 100%;
+         vertical-align: middle;
+         font-weight: bold;
+         font-size: 1.2em;
+         background-color: #EEE;
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task" alkindi>
+      <div id="zone_012">
+         <div id="zone_0">
+            <h1>César</h1>
+            <div id="tabsContainer"></div>
+         </div>
+
+         <div id="zone_12">
+            <div id="zone_1">
+               <div class="consigne">
+                  <h3><i class="far fa-sticky-note"></i>VOTRE MISSION</h3>
+                  <div id="text">
+                     <p><b>Faites tourner les roues</b> pour déchiffrer le texte et retrouver le message en français.
+   		            Chaque lettre écrite en haut de la roue (en rouge) est remplacée par la lettre en dessous (en bleue).</p>
+                  </div>
+               </div>
+            </div>
+         
+            <div id="zone_2">
+               <div id="taskCont">
+                  <p style="margin-left:20px"><b>Texte chiffré :</b></p>
+                  <div id="enciphered"></div>
+                  <div id="wheels"></div>
+                  <p style="margin-left:20px"><b>Texte déchiffré (doit être en français) :</b></p>
+                  <div id="deciphered"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="zone_3"></div>
+      
+<!--       <span id="error">
+      </span> -->
+ 
+      <div id="feedback"></div>
+      <img src="icon.png" style="display:none">
+   </div>
+   <div id="solution">
+      <h2>Solution</h2>
+   </div>
+</body>
+</html>
