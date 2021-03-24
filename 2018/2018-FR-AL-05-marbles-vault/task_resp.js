@@ -286,9 +286,8 @@ function initTask(subTask) {
             wheelDragArea[iWheel].remove();
          }
          wheelDragArea[iWheel] = paper.circle(wheelCenter[iWheel][0],wheelCenter[iWheel][1],wheelRadius).attr(clickAreaAttr);
-         // paper.circle(wheelCenter[iWheel][0],wheelCenter[iWheel][1],wheelRadius/2).attr(clickAreaAttr).attr("cursor","auto");
          wheelDragArea[iWheel].undrag();
-         wheelDragArea[iWheel].drag(dragMove(iWheel),dragStart(iWheel),dragEnd(iWheel));
+         Beav.dragWithTouch(wheelDragArea[iWheel], dragMove(iWheel), dragStart(iWheel), dragEnd(iWheel), displayHelper)
       }
    };
 
